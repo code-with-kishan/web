@@ -13,10 +13,10 @@
     "client"
   ],
   "scripts": {
-    "dev:server": "npm run dev -w server",
-    "dev:client": "npm run dev -w client",
-    "build": "npm run build -w client && npm run build -w server",
-    "build:vercel": "npm run build -w client",
+    "dev:server": "npm run dev -w @stadiumiq/server",
+    "dev:client": "npm run dev -w @stadiumiq/client",
+    "build": "npm run build -w @stadiumiq/client && npm run build -w @stadiumiq/server",
+    "build:vercel": "npm run build -w @stadiumiq/client",
     "smoke": "node scripts/smoke.mjs",
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
