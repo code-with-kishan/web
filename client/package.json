@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npx tsc -b && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "typecheck": "npx tsc --noEmit -p tsconfig.test.json",
     "test": "vitest run",
