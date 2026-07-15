@@ -1,0 +1,8 @@
+# Normalize all text files to LF in the repository.
+* text=auto eol=lf
+
+# Shell scripts must stay LF so they run in Linux containers and CI.
+*.sh text eol=lf
+
+# Treat lockfiles and binaries appropriately.
+package-lock.json -diff

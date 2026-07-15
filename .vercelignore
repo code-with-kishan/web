@@ -1,0 +1,12 @@
+node_modules
+server/node_modules
+client/node_modules
+server/dist
+**/*.test.ts
+**/*.spec.ts
+tests/
+e2e/
+coverage/
+.nyc_output
+*.log
+.env.local

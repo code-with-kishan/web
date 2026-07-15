@@ -1,0 +1,56 @@
+{
+  "name": "stadiumiq",
+  "version": "1.1.0",
+  "description": "GenAI-enabled Smart Stadiums & Tournament Operations platform for the FIFA World Cup 2026 \u2014 multilingual fan navigation, crowd management, accessibility, transportation guidance, sustainability tracking, and real-time operational decision support.",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev -w server",
+    "dev:client": "npm run dev -w client",
+    "build": "npm run build -w client && npm run build -w server",
+    "build:vercel": "npm run build -w client",
+    "smoke": "node scripts/smoke.mjs",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test --workspaces",
+    "test:coverage": "npm run test:coverage --workspaces",
+    "test:e2e": "playwright test",
+    "test:e2e:live": "playwright test --config playwright.live.config.ts",
+    "test:mutation": "npm run test:mutation -w @stadiumiq/server",
+    "prepare": "husky || true"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --max-warnings=0",
+      "prettier --write"
+    ],
+    "*.{js,json,md,yml,yaml,css}": "prettier --write"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@eslint/js": "^9.30.0",
+    "@playwright/test": "^1.61.1",
+    "@vercel/node": "^5.1.16",
+    "eslint": "^9.30.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "globals": "^17.7.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.6.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.0"
+  },
+  "overrides": {
+    "qs": "6.15.3"
+  }
+}

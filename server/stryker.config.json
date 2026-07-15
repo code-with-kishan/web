@@ -1,0 +1,15 @@
+{
+  "packageManager": "npm",
+  "testRunner": "vitest",
+  "reporters": ["html", "clear-text", "progress"],
+  "coverageAnalysis": "perTest",
+  "mutate": [
+    "src/features/operations/crowd.ts",
+    "src/lib/ttl-cache.ts",
+    "src/lib/app-error.ts",
+    "src/middleware/async-handler.ts"
+  ],
+  "tempDirName": ".stryker-tmp",
+  "htmlReporter": { "fileName": "reports/mutation/index.html" },
+  "thresholds": { "high": 80, "low": 60 }
+}

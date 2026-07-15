@@ -1,0 +1,28 @@
+name: Mutation testing
+
+# Non-blocking: mutation testing measures suite strength but is slower and more
+# variable than unit tests, so it runs on its own schedule and never gates a PR.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 5 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  stryker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Stryker mutation testing
+        run: npm run test:mutation

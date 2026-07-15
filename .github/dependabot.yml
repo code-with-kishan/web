@@ -1,0 +1,21 @@
+# Dependabot watches every ecosystem for vulnerable dependencies.
+# open-pull-requests-limit is 0 for the event window because the submission
+# rules require the repository to contain exactly one branch; alerts still
+# surface in the Security tab. Raise the limits to re-enable update PRs.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    groups:
+      production:
+        dependency-type: production
+      development:
+        dependency-type: development
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
